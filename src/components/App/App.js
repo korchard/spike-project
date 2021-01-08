@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@pdftron/webviewer-react-toolkit';
+import { Button, ButtonGroup } from '@pdftron/webviewer';
 import './App.css';
 import Contact from '../Contact/Contact';
 
