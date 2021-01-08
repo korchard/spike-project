@@ -24,17 +24,18 @@ router.get('/', (req, res) => {
 // });
 
 // NODEMAILER POST
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
+    console.log('email', req.body);
     const data = req.body;
   
     const smtpTransport = nodemailer.createTransport({
-        service: 'Gmail',
-        port: 465,
-        secure: true,
-        // auth: {
-        //     user: 'kimberly.a.orchard@gmail.com',
-        //     pass: 'Blake7733'
-        // }
+        host: 'gmail',
+        // port: 587,
+        // secure: false,
+        auth: {
+            user: 'kimberly.a.orchard@gmail.com',
+            pass: 'Blake7733'
+        }
     });
   
     const mailOptions = {
@@ -47,7 +48,7 @@ router.post('/', (req,res) => {
   
     smtpTransport.sendMail(mailOptions,
         (error, response) => {
-            if(error) {
+            if (error) {
                 res.send(error)
             } else {
                 res.send('Success')
