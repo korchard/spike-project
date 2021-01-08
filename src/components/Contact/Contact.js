@@ -1,21 +1,42 @@
 import { Component } from 'react';
+import { connect } from "react-redux";
 import './Contact.css';
 
 class Contact extends Component {
 
+    // local state
     state = {
-        name: '',
-        emailAddress: '',
-        subject: '',
-        message: ''
-    }
+        email: {
+            name: '',
+            email_address: '',
+            subject: '',
+            message: ''
+        }
+    } 
 
     handleChange = (event, inputProperty) => {
         console.log('event happened', event.target.value);
         this.setState({
-            [inputProperty]: event.target.value,
+            email: {
+                ...this.state.email,
+                [inputProperty]: event.target.value,
+            }
         }); // end setState
     } // end handleChange
+
+    sendMessage = () => {
+        console.log('message sent');
+        // sends message to the POST saga
+        this.props.dispatch({ type: 'SEND_EMAIL', payload: this.state.email })
+        this.setState({
+            email: {
+                name: '',
+                email_address: '',
+                subject: '',
+                message: ''
+            }
+        }) // end setState
+    } // end sendMessage
 
   render() { 
       return (
@@ -30,7 +51,7 @@ class Contact extends Component {
                 <input 
                     type="text" 
                     id="emailAddress" 
-                    onChange={(event) => this.handleChange(event, 'emailAddress')}/>
+                    onChange={(event) => this.handleChange(event, 'email_address')}/>
                     <br></br>
             <label htmlFor="subject">Subject</label>
                 <input 
@@ -43,9 +64,11 @@ class Contact extends Component {
                     type="text" 
                     id="message" 
                     onChange={(event) => this.handleChange(event, 'message')}/>
+                    <br></br>
+            <button onClick={this.sendMessage}>Send</button>
         </div>
     );
   }
 }
 
-export default Contact;
+export default connect()(Contact);

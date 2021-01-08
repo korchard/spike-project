@@ -1,11 +1,10 @@
 import './App.css';
+import Contact from '../Contact/Contact';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Blah!
-      </header>
+      <Contact />
     </div>
   );
 }
