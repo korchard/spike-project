@@ -54,6 +54,7 @@ router.post('/', (req, res) => {
             smtpTransport.close();
     });
 
+    // Sends the message to the database
     let sqlText = `INSERT INTO nodemailer (name, email_address, subject, message)
                    VALUES ( $1, $2, $3, $4 )`;
     pool.query(sqlText, [data.name, data.email_address, data.subject, data.message]) 
