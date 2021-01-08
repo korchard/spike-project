@@ -11,19 +11,24 @@ import rootSaga from './redux/sagas';
 
 import App from './components/App/App';
 
+// instance of the middleware
 const sagaMiddleware = createSagaMiddleware();
 
+// middleware
 const middlewareList = process.env.NODE_ENV === 'development' ?
   [sagaMiddleware, logger] :
   [sagaMiddleware];
 
+// redux Store
 const store = createStore(
   rootReducer,
   applyMiddleware(...middlewareList),
 );
 
+// runs the sagas
 sagaMiddleware.run(rootSaga);
 
+// renders all the information to the DOM
 ReactDOM.render(
   <Provider store={store}>
     <App />

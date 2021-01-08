@@ -10,22 +10,11 @@ function* sendMessage( action ) {
     } catch (error) {
         console.log('Bad news bears, error with INDEX POST', error);
     }
-}
+} // end sendMessage
 
-// GET ROUTE 
-// function* getEmails() {
-//     console.log('index get');
-//     try {
-//         const response = yield axios.get('/api/contact');
-//         yield put({ type: 'SET_EMAILS', payload: response.data })
-//     } catch (error) {
-//       console.log('Bad news bears, error with INDEX GET', error);
-//     }
-// } // end getEmails
-
+// saga to call the generator function
 function* messageSaga() {
   yield takeLatest('SEND_EMAIL', sendMessage);
-  //yield takeLatest('GET_EMAILS', getEmails);
-}
+} // end messageSaga
 
 export default messageSaga;
