@@ -1,5 +1,5 @@
 // import { put, takeLatest } from 'redux-saga/effects';
-import { takeLatest } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* sendMessage( action ) {
@@ -14,7 +14,7 @@ function* sendMessage( action ) {
 
 // saga to call the generator function
 function* messageSaga() {
-  yield takeLatest('SEND_EMAIL', sendMessage);
+  yield takeEvery('SEND_EMAIL', sendMessage);
 } // end messageSaga
 
 export default messageSaga;

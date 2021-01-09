@@ -1,4 +1,4 @@
-import { File } from '@pdftron/webviewer-react-toolkit';
+import { File } from '@pdftron/webviewer';
 
 /**
  * Takes a file at `source` and splits it into an array of `File`, one for each

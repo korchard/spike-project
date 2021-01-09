@@ -7,7 +7,7 @@ import {
   Thumbnail,
   ThumbnailDragLayer,
   useManagedFiles,
-} from '@pdftron/webviewer-react-toolkit';
+} from '@pdftron/webviewer';
 import React, { useState } from 'react';
 import './App.css';
 import { splitPages } from './utils';
@@ -64,4 +64,4 @@ function ConsultForm() {
     );
 }
 
-export default App;
+export default ConsultForm;
