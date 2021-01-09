@@ -1,8 +1,8 @@
-import { Button, ButtonGroup } from '@pdftron/webviewer';
 import './App.css';
 import Contact from '../Contact/Contact';
 import WebViewer from '@pdftron/webviewer';
 import React, { useRef, useEffect } from 'react';
+import Typescript from 'typescript';
 
 function App() {
   const viewerDiv = useRef<HTMLDivElement>(null);
