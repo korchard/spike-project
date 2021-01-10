@@ -4,6 +4,7 @@ import ConsultForm from '../ConsultForm/ConsultForm';
 import SinglePage from '../SinglePage/SinglePage';
 import React from 'react';
 import herbalintake from '../../assets/herbalintake.pdf';
+import USPS from '../USPS/USPS';
 // import WebViewer from '@pdftron/webviewer';
 // import React, { useRef, useEffect } from 'react';
 // import Typescript from 'typescript';
@@ -32,6 +33,7 @@ function App() {
       </div>
 
       <hr />
+      <USPS />
     </div>
   );
 }
