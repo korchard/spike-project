@@ -4,10 +4,22 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // GET ROUTE
 router.get('/', (req, res) => {
-    res.sendStatus(200); 
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
 });
+//     res.sendStatus(200); 
+// });
 
 // NODEMAILER && POST ROUTE
 router.post('/', (req, res) => {
